@@ -28,7 +28,7 @@ class Solution:
             for i in range(4):
                 d = int(code[i])
                 for shift in [-1, 1]:
-                    new_code[i] = str(abs((d + shift) % 10))
+                    new_code[i] = str((d + shift) % 10)
                     q.append((''.join(new_code), count + 1))
                 new_code[i] = code[i]
         return result if found else -1
@@ -69,4 +69,4 @@ testCases = [
 
 s = Solution()
 for test in testCases:
-    print(f'{test}: {s.openLock(*test)}')
+    print(f'{test}: {s.openLock1(*test)}')
