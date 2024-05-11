@@ -7,14 +7,13 @@ class Solution:
         size = len(arr)
         heap = [(arr[x] / arr[-1], x, size - 1) for x in range(size - 1)]
         heapq.heapify(heap)
-        frac = (0.0, 0, 0)
         while k > 0:
-            frac = heapq.heappop(heap)
-            new_y = frac[2] - 1
-            if new_y > frac[1]:
-                heapq.heappush(heap, (arr[frac[1]] / arr[new_y], frac[1], new_y))
+            _, x, y = heapq.heappop(heap)
+            new_y = y - 1
+            if new_y > x:
+                heapq.heappush(heap, (arr[x] / arr[new_y], x, new_y))
             k -= 1
-        return [arr[frac[1]], arr[frac[2]]]
+        return [arr[x], arr[y]]
 
 
 testCases = [
