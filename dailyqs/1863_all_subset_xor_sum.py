@@ -13,6 +13,7 @@ class Solution:
         recursiveSum(0, 0, total)
         return total[0]
 
+
 testCases = [
     [1, 3],
     [5, 1, 6],
